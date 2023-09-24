@@ -23,20 +23,23 @@
    </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <div class="container">
-    {% block page_content %} {% endblock %}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
-
-
-
 
 {% block timestamp %}
 {% block scripts %}
 {{ super() }} 
 {{ moment.include_moment() }}
+<br>
 <div class="container">
     <div class="timestamp">
         <p>The local date and time is {{ moment(current_time).format('LLLL') }}.</p>
