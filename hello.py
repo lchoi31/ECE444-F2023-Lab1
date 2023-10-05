@@ -16,6 +16,9 @@ app.config['SECRET_KEY'] = ']%<96hX:3Pv+'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
